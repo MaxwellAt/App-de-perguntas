@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>App de Perguntas</title>
+        <style>
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                overflow: hidden;
+                background-color: black;
+                color: green;
+            }
+            .myButton {
+                position: relative;
+                box-shadow:inset 0px 1px 0px 0px #3dc21b;
+                background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+                background-color:#44c767;
+                border-radius:6px;
+                border:1px solid #18ab29;
+                display:inline-block;
+                cursor:pointer;
+                color:#000000;
+                font-family:Arial;
+                font-size:15px;
+                font-weight:bold;
+                padding:6px 24px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #2f6627;
+            }
+            .myButton:hover {
+                background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+                background-color:#5cbf2a;
+            }
+            .myButton:active {
+                position:relative;
+                top:1px;
+            }
+            .css-input { font-size:16px; border-style:solid; padding:6px; text-align:left; border-radius:21px; border-width:2px; background-color:black; border-color:#055c00; color:#006e0d; box-shadow: 0px 0px 22px 0px rgba(0,107,4,.75); text-shadow:0px 0px 0px rgba(42,42,42,.75); margin-right: 1em; }
+            .css-input:focus { outline:none; } 
+
+        </style>
+    </head>
+    <body>
+        <h1>Bem vindo(a)!</h1>
+      
+        <div>
+          <button href="#" class="myButton">Sim</button>
+          <button href="#" class="myButton">Não</button>
+        </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script>
+            // Swal.fire('Para mudar o titulo aperte a tecla "Enter" do seu teclado')
+            Swal.fire({
+                title: 'Aviso',
+                text: 'Para mudar o titulo aperte a tecla "Enter" do seu teclado',
+                background: 'grey',
+                color:'black',
+                confirmButtonColor: 'green',
+            })
+            
+
+            let nao = document.querySelector('body > div:nth-child(2) > button:nth-child(2)')
+            nao.addEventListener('click',()=>{
+                opcoes = ['4','3','-4','-3']
+                nao.style.left = opcoes[Math.floor(Math.random() * opcoes.length)] + "em"
+                nao.style.top = opcoes[Math.floor(Math.random() * opcoes.length)] + "em"
+            })
+            document.addEventListener('keypress', function(e){
+                if(e.which == 13){
+                    // Swal.fire({
+                    //     title: 'Qual será a próxima pergunta?',
+                    //     input: 'text',
+                    //     background: 'grey',
+                    //     color:'black',
+                    //     inputPlaceholder: 'Digite aqui...',
+                    //     confirmButtonColor: 'green',
+                    //     showDenyButton:true,
+                    //     denyButtonText:'CANCELAR',
+                    //     inputValidator:(value)=>{
+                    //         if(!)
+                    //     }
+                    // }).then(
+                    //     function(email){
+                    //         if (email) {
+                    //             document.querySelector('h1').innerHTML = email.value
+                    //         }
+                    //         else{
+                    //             console.log('nada')
+                    //         }
+                    //     }
+                    // )
+                    Swal.fire({
+                        title: 'Qual será a próxima pergunta?',
+                        input: 'text',
+                        background: 'grey',
+                        color:'black',
+                        inputPlaceholder: 'Digite aqui...',
+                        confirmButtonColor: 'green',
+                        showCancelButton:true,
+                        cancelButtonText:'CANCELAR',
+                        cancelButtonColor:'Red',
+                        inputValidator: (value) => {
+                            if (!value) {
+                            return 'Você precisa escrever alguma coisa!'
+                            }
+                        }
+                    }).then(
+                        (ipAddress)=>{
+                            if (ipAddress.value) {
+                                document.querySelector('h1').innerHTML = ipAddress.value
+                            }
+                        }
+                    )
+                }
+            }, false);
+        </script>
+      </body>
+</html>
