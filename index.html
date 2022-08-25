@@ -69,28 +69,6 @@
             })
             document.addEventListener('keypress', function(e){
                 if(e.which == 13){
-                    // Swal.fire({
-                    //     title: 'Qual será a próxima pergunta?',
-                    //     input: 'text',
-                    //     background: 'grey',
-                    //     color:'black',
-                    //     inputPlaceholder: 'Digite aqui...',
-                    //     confirmButtonColor: 'green',
-                    //     showDenyButton:true,
-                    //     denyButtonText:'CANCELAR',
-                    //     inputValidator:(value)=>{
-                    //         if(!)
-                    //     }
-                    // }).then(
-                    //     function(email){
-                    //         if (email) {
-                    //             document.querySelector('h1').innerHTML = email.value
-                    //         }
-                    //         else{
-                    //             console.log('nada')
-                    //         }
-                    //     }
-                    // )
                     Swal.fire({
                         title: 'Qual será a próxima pergunta?',
                         input: 'text',
@@ -115,6 +93,15 @@
                     )
                 }
             }, false);
+            document.querySelector('body > div > button:nth-child(1)').addEventListener('click',()=>{
+                Swal.fire({
+                    title: 'Parabéns!',
+                    icon: 'success',
+                    background: 'grey',
+                    color:'black',
+                    confirmButtonColor: 'green',
+                })
+            })
         </script>
       </body>
 </html>
